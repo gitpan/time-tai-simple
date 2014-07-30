@@ -20,7 +20,7 @@ my %WriteMakefileArgs = (
     "bin/tai-download-leapseconds",
     "bin/tai"
   ],
-  "LICENSE" => "restrictive",
+  "LICENSE" => "perl",
   "NAME" => "time::tai::simple",
   "PREREQ_PM" => {
     "Data::Dumper" => "2.0",
@@ -28,7 +28,7 @@ my %WriteMakefileArgs = (
     "POSIX::RT::Clock" => "0.015",
     "Time::HiRes" => "1.9"
   },
-  "VERSION" => "1.00",
+  "VERSION" => "1.01",
   "test" => {
     "TESTS" => "t/*.t"
   }

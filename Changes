@@ -1,4 +1,7 @@
 Revision history for time-tai-simple
 
-{{$NEXT}}
-    -
+1.01 Wed Jul 30 13:55:52 PDT 2014
+        - Minor fixes: license, documentation
+
+1.00 Tue Jul 29 08:54:40 PDT 2014
+        - First version

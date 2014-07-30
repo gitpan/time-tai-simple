@@ -6,7 +6,7 @@ Time::TAI::Simple - High resolution UNIX epoch time without leapseconds
 
 ## VERSION
 
-1.00
+1.01
 
 ## SYNOPSIS
 
@@ -127,6 +127,6 @@ TTK Ciar, <ttk[at]ciar[dot]org>
 
 Copyright 2014 by TTK Ciar
 
-This module is free software. You may use, redistribute, and/or modify
-it as you see fit, but cannot sue the author for doing likewise.
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
 

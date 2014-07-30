@@ -13,7 +13,7 @@ use base qw(Exporter);
 
 BEGIN {
     @Time::TAI::Simple::EXPORT = qw(tai tai10 tai35);
-    $Time::TAI::Simple::VERSION = '1.00';
+    $Time::TAI::Simple::VERSION = '1.01';
 }
 
 our @LEAPSECOND_UNIX_PATHNAME_LIST = (
@@ -440,7 +440,9 @@ B<EXAMPLE>:
 
 =head1 OBJECT ORIENTED INTERFACE
 
-=head2 C<$tai = Time::TAI::Simple-E<gt>new(%options)>
+=head2 INSTANTIATION
+
+=head3 C<$tai = Time::TAI::Simple-E<gt>new(%options)>
 
 Instantiates and returns a new C<Time::TAI::Simple> object, hereafter referred
 to as C<$tai>.  Returns C<undef> on irrecoverable error.
@@ -548,57 +550,57 @@ method from a few microseconds to a few milliseconds.
 
 =back
 
-=head1 OBJECT ATTRIBUTES
+=head2 OBJECT ATTRIBUTES
 
 The following attributes of a C<Time::TAI::Simple> instance are public.  Changes to
 some attributes will do nothing until the C<load_leapseconds> and/or C<calculate_base>
 methods are re-run.
 
-=head2 C<opt_hr> (hash reference)
+=head3 C<opt_hr> (hash reference)
 
 Refers to the parameters passed to C<new>.
 
-=head2 C<tm_or> (C<POSIX::RT::Clock> object reference)
+=head3 C<tm_or> (C<POSIX::RT::Clock> object reference)
 
 Refers to the POSIX standard monotonic clock interface used by C<time> to calculate
 the current TAI time (along with C<tm_base>).
 
-=head2 C<ls_ar> (array reference)
+=head3 C<ls_ar> (array reference)
 
 Refers to the IETF leapseconds list.  Its elements are arrayrefs to
 C<[UTC epoch, seconds]> tuples, and they are ordered by C<UTC epoch>.
 
-=head2 C<ls_tm> (integer)
+=head3 C<ls_tm> (integer)
 
 Value is the file modification time of the IETF leapseconds list file, if C<ls_ar>
 was loaded from a file, or the time C<ls_ar> was loaded from
 C<@Time::TAI::Simple::FALLBACK_LEAPSECONDS_LIST>, or C<0> if never loaded.
 
-=head2 C<dl_tm> (floating point)
+=head3 C<dl_tm> (floating point)
 
 Value is the system clock time the C<download_leapseconds> method last attempted to
 download the IETF leapseconds list file, or C<0.0> if never attempted.
 
-=head2 C<tm_base> (floating point)
+=head3 C<tm_base> (floating point)
 
 Value is the difference, in seconds, between the POSIX monotonic clock time
 and the beginning of the epoch.  It is used by C<time> to calculate the current
 TAI time.  It is initialized by the C<calculate_base> method, and is C<0.0> if
 never initialized.
 
-=head2 C<mode> (string)
+=head3 C<mode> (string)
 
 Exactly one of "tai", "tai10", "tai35", indicating the C<mode> with which the
 object was instantiated, and thus the type of TAI time returned by C<time>.
 Its default value is "tai10".
 
-=head1 OBJECT METHODS
+=head2 OBJECT METHODS
 
-=head2 C<$tai-E<gt>time()>
+=head3 C<$tai-E<gt>time()>
 
 Returns a floating-point number of seconds elapsed since the epoch.
 
-=head2 C<$tai-E<gt>calculate_base(%options)>
+=head3 C<$tai-E<gt>calculate_base(%options)>
 
 C<calculate_base> uses the POSIX monotonic clock, the leapsecond list, and
 the system clock to calculate C<$tai-E<gt>{tm_base}>, which is the difference
@@ -620,7 +622,7 @@ It takes some of the same options as C<new>, and they have the same effect:
 
 It has no return value.
 
-=head2 C<$tai-E<gt>load_leapseconds(%options)>
+=head3 C<$tai-E<gt>load_leapseconds(%options)>
 
 C<load_leapseconds> finds the local copy of the IETF leapseconds list file,
 reads it, and populates the object's C<ls_ar> attribute.  If it cannot find
@@ -641,7 +643,7 @@ to <new>:
 
 It returns 1 on success, 0 on failure.
 
-=head2 C<$tai-E<gt>download_leapseconds(%options)>
+=head3 C<$tai-E<gt>download_leapseconds(%options)>
 
 C<download_leapseconds> tries to download the IETF leapseconds file so it
 can be loaded by the C<load_leapseconds> method.  It iterates through a
@@ -739,7 +741,7 @@ TTK Ciar, <ttk[at]ciar[dot]org>
 
 Copyright 2014 by TTK Ciar
 
-This module is free software.  You may use, redistribute, and/or modify it as you
-see fit, but cannot sue the author for doing likewise.
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl itself.
 
 =cut
