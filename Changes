@@ -1,5 +1,10 @@
 Revision history for time-tai-simple
 
+1.02 Wed Aug  3 11:28:17 PDT 2014
+        - Added missing prequisite: Test::Most
+        - Corrected formatting bug in bin/tai
+        - Corrected /bin/env --> /usr/bin/env in bin/* (some unixes lack /bin/env, but all seem to have binary or symlink to binary at /usr/bin/env)
+
 1.01 Wed Jul 30 13:55:52 PDT 2014
         - Minor fixes: license, documentation
 

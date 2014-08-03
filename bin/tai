@@ -1,4 +1,4 @@
-#!/bin/env perl
+#!/usr/bin/env perl
 
 use strict;
 use warnings;
@@ -32,10 +32,13 @@ elsif ($OPT{'3'} ) { $tm = tai35(); }
 elsif ($OPT{'0'} ) { $tm = tai();   }
 else { $tm = tai10(); }
 
-$tm = int($tm) if ($OPT{i});        # Integer output
+if ($OPT{i}) { # Integer output
+    $tm  = int($tm);
+    $fmt = '%d';
+}
 
 # ISO International standard time format:
-if ($OPT{iso} || $OPT{iso8601} || $OPT{zulu}) {
+if ($OPT{iso} || $OPT{iso8601} || $OPT{zulu} || $OPT{'strict'}) {
     my ($sec, $min, $hour, $mday, $mon, $year, $wday, $yday, $isdst);
     my @gm_list = ();
     if ($OPT{gm} || $OPT{utc}) {
@@ -47,7 +50,7 @@ if ($OPT{iso} || $OPT{iso8601} || $OPT{zulu}) {
     $sec += $tm - int($tm);
     my $pad = '';
     $pad = '0' if ($sec < 10);
-    if ($OPT{iso8601}) {
+    if ($OPT{iso8601} || $OPT{'strict'}) {
         # Anally strictly correct format
         if ($OPT{gm} || $OPT{utc} || $OPT{zulu}) {
             printf('%04d-%02d-%02dT%02d:%02d:%s'.$fmt.'Z%s', $year+1900, $mon+1, $mday, $hour, $min, $pad, $sec, $nl);

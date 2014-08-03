@@ -26,9 +26,10 @@ my %WriteMakefileArgs = (
     "Data::Dumper" => "2.0",
     "File::Slurp" => "9999.19",
     "POSIX::RT::Clock" => "0.015",
+    "Test::Most" => "0.30",
     "Time::HiRes" => "1.9"
   },
-  "VERSION" => "1.01",
+  "VERSION" => "1.02",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -39,6 +40,7 @@ my %FallbackPrereqs = (
   "Data::Dumper" => "2.0",
   "File::Slurp" => "9999.19",
   "POSIX::RT::Clock" => "0.015",
+  "Test::Most" => "0.30",
   "Time::HiRes" => "1.9"
 );
 

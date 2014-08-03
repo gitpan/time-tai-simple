@@ -13,7 +13,7 @@ use base qw(Exporter);
 
 BEGIN {
     @Time::TAI::Simple::EXPORT = qw(tai tai10 tai35);
-    $Time::TAI::Simple::VERSION = '1.01';
+    $Time::TAI::Simple::VERSION = '1.02';
 }
 
 our @LEAPSECOND_UNIX_PATHNAME_LIST = (
@@ -234,7 +234,7 @@ sub _leapseconds_filename {
 
 =head1 VERSION
 
-    1.00
+    1.02
 
 =head1 SYNOPSIS
 
