@@ -14,3 +14,4 @@ dist.ini
 lib/Time/TAI/Simple.pm
 t/000-time-tai-simple.t
 t/001-measure-fine-tuning-overhead.t
+touch-before-release.txt

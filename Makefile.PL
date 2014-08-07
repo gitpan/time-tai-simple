@@ -25,11 +25,12 @@ my %WriteMakefileArgs = (
   "PREREQ_PM" => {
     "Data::Dumper" => "2.0",
     "File::Slurp" => "9999.19",
+    "LWP::Simple" => "5.829",
     "POSIX::RT::Clock" => "0.015",
     "Test::Most" => "0.30",
     "Time::HiRes" => "1.9"
   },
-  "VERSION" => "1.02",
+  "VERSION" => "1.03",
   "test" => {
     "TESTS" => "t/*.t"
   }
@@ -39,6 +40,7 @@ my %WriteMakefileArgs = (
 my %FallbackPrereqs = (
   "Data::Dumper" => "2.0",
   "File::Slurp" => "9999.19",
+  "LWP::Simple" => "5.829",
   "POSIX::RT::Clock" => "0.015",
   "Test::Most" => "0.30",
   "Time::HiRes" => "1.9"
